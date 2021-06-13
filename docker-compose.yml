@@ -1,18 +1,20 @@
-version: '3'
-   
+version: "3.8"
+
 services:
   db:
     image: mysql:5.7
+    restart: always
     ports:
-      - '3306:3306'
+      - 3306:3306
     environment:
-      MYSQL_DATABASE: 'be-together'
-      MYSQL_USER: 'root'
-      MYSQL_PASSWORD: 'password'
-      MYSQL_ROOT_PASSWORD: 'password'
+       MYSQL_DATABASE: my-app-db
+       MYSQL_ROOT_USER: root
+       MYSQL_ROOT_PASSWORD: password
+    volumes:
+      - .dbdata:/var/lib/mysql
   web:
     build: .
-    command: python myproject/manage.py runserver 0.0.0.0:8000
+    command: python betogether/manage.py runserver 0.0.0.0:8000
     volumes:
       - .:/code
     ports:
