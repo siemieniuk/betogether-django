@@ -47,7 +47,7 @@
     header>#hamburger {
         display: block;
         flex: 0 0 18vw;
-        background-image: url('/beTogether/img/hamburger.svg');
+        background-image: url('img/hamburger.svg');
         background-size: contain;
         background-repeat: no-repeat;
         height: auto;
@@ -294,11 +294,11 @@ section>h1 {
 }
 
 .btn--accessibility#darktheme {
-    background-image: url('/beTogether/img/darktheme_icon.png');
+    background-image: url('../img/darktheme_icon.png');
 }
 
 .btn--accessibility#serif {
-    background-image: url('/beTogether/img/serif_icon.png');
+    background-image: url('../img/serif_icon.png');
 }
 
 .btn--form {

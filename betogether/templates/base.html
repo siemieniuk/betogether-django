@@ -10,8 +10,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" type="image/png" href="{% static 'img/favicon.png'%}">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    {% comment %} <script src="{% static 'js/accessibility.js' %}"></script>
-    <script src="{% static 'js/menu.js' %}"></script> {% endcomment %}
+    <script src="{% static 'js/accessibility.js' %}"></script>
+    <script src="{% static 'js/menu.js' %}"></script>
     <style>
       /* @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&family=Source+Sans+Pro&display=swap'); */
       @import url('https://fonts.googleapis.com/css2?family=Lora&display=swap');
@@ -20,9 +20,23 @@
   </head>
   <body>
     <div id='container'>
-        {% block header %}{% endblock %}
-        {% block content %}{% endblock %}
-    </div>
+      <header>
+        <div id='hamburger'></div>
+        <a href='index'><img src="{% static 'img/logo.png' %}" alt='logo witryny' id='logo' title='Przejdź na stronę główną'></a>
+        <nav>
+          <ul>
+  <?php   foreach ($links as $a): ?>
+            <li><?php echo "<a href='$a[0]'>$a[1]</a>"?></li>
+  <?php   endforeach ?>
+              <div>
+                <button class='btn--accessibility' id='darktheme' title='włącz/wyłącz ciemny motyw'></button>
+                <button class='btn--accessibility' id='serif' title='włącz/wyłącz czcionkę bezszeryfową'></button>
+              </div>
+            </li>
+          </ul>
+        </nav>
+      </header>
+      {% block content %}{% endblock %}
     <footer>
         <hr>
         <div>&copy; 2021, all rights reserved and beyonds to beTogether. Created by Szymon Siemieniuk.</div>
