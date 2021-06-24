@@ -22,7 +22,7 @@
     <div id='container'>
       <header>
         <div id='hamburger'></div>
-        <a href='index'><img src="{% static 'img/logo.png' %}" alt='logo witryny' id='logo' title='Przejdź na stronę główną'></a>
+        <a href='/'><img src="{% static 'img/logo.png' %}" alt='logo witryny' id='logo' title='Przejdź na stronę główną'></a>
         <nav>
           <ul>
   <?php   foreach ($links as $a): ?>
@@ -41,8 +41,8 @@
         <hr>
         <div>&copy; 2021, all rights reserved and beyonds to beTogether. Created by Szymon Siemieniuk.</div>
         <nav>
-          <a href="terms_and_conditions">Regulamin serwisu</a>
-          <a href='index'>Strona główna</a>
+          <a href={% url 'terms_and_conditions' %}>Regulamin serwisu</a>
+          <a href='/'>Strona główna</a>
         </nav>
       </footer>
     </div>

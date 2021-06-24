@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block title %}Logowanie{% endblock %}
+{% block content %}
+<main>
+    <h1>Wprowadź swój nick i hasło</h1>
+    <form action='login' name='login' method='post'>
+        {% csrf_token %}
+        {{ form }}
+        <button class='btn--form'>zaloguj</button>
+    </form>
+</main>
+{% endblock %}

@@ -2,8 +2,13 @@
 
 {% block title %}Strona główna{% endblock %}
 
+
+
 {% block content %}
     <main id='start'>
+{% if logout %}
+      <div class='success'>Pomyślnie wylogowano!</div>
+{% endif %}
       <section title='hello'>
         <h1>Witamy na naszej (Waszej!) platformie!</h1>
         <p>To nie żart, ta platforma jest miejscem, które Wy jako społeczność sami tworzycie!</p>
@@ -11,8 +16,8 @@
         <p>Wymieniaj się postami i wspomnieniami, głosuj na najlepsze (i najgorze) wpisy. Możliwości są nieograniczone.</p>
         <p>Na co zwlekasz? Bądźmy razem!</p>
         <section id='index_buttons'>
-          <a href='register'><button class='btn--form'>Stwórz konto</button></a>
-          <a href='login'><button class='btn--form'>Zaloguj</button></a>
+          <a href={% url 'register' %}><button class='btn--form'>Stwórz konto</button></a>
+          <a href={% url 'login' %}><button class='btn--form'>Zaloguj</button></a>
         </section>
       </section>
     </main>
