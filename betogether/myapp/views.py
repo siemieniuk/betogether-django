@@ -1,17 +1,21 @@
 from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views import View
 from .forms import LoginForm
 # Create your views here.
 
 
-def index(request):
+def homepage(request):
+    if request.user.is_authenticated:
+        return render(
+            request,
+            'dashboard.html'
+        )
     return render(
         request,
         'index.html'
     )
-
 
 def terms(request):
     return render(
@@ -19,10 +23,8 @@ def terms(request):
         'terms_and_conditions.html'
     )
 
-
 class LoginView(View):
     template_name = 'login.html'
-
     def post(self, request):
         form = LoginForm(request.POST or None)
         if form.is_valid():
@@ -35,19 +37,17 @@ class LoginView(View):
             if user is not None:
                 if user.is_active:
                     login(request, user)
-                    return HttpResponse('Success!')
+                    return redirect(homepage)
                 else:
-                    return HttpResponse('You have been banned!')
-            else:
-                return HttpResponse('Invalid nickname or password')
-        else:
-            form = LoginForm()
-            return render(
-                request,
-                self.template_name,
-                {
-                    'form': form,
-                })
+                    return HttpResponse('You have been banned!')    
+        form = LoginForm()
+        return render(
+            request,
+            self.template_name,
+            {
+                'form': form,
+                'msg': "Nieprawidłowe dane logowania"
+            })
 
     def get(self, request):
         form = LoginForm()
@@ -57,17 +57,6 @@ class LoginView(View):
             {
                 'form': form,
             })
-
-
-def logout_view(request):
-    logout(request)
-    return render (
-        request,
-        'index.html',
-        {
-            'logout': True,
-        }
-    )
 
 
 def register(request):
