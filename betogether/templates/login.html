@@ -2,6 +2,9 @@
 {% block title %}Logowanie{% endblock %}
 {% block content %}
 <main>
+    {% if msg %}
+    <div class='msg-block msg--error'>{{ msg }}</div>
+    {% endif %}
     <h1>Wprowadź swój nick i hasło</h1>
     <form action='login' name='login' method='post'>
         {% csrf_token %}

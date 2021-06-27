@@ -12,11 +12,6 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <script src="{% static 'js/accessibility.js' %}"></script>
     <script src="{% static 'js/menu.js' %}"></script>
-    <style>
-      /* @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&family=Source+Sans+Pro&display=swap'); */
-      @import url('https://fonts.googleapis.com/css2?family=Lora&display=swap');
-      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
-    </style>
   </head>
   <body>
     <div id='container'>
@@ -25,9 +20,13 @@
         <a href='/'><img src="{% static 'img/logo.png' %}" alt='logo witryny' id='logo' title='Przejdź na stronę główną'></a>
         <nav>
           <ul>
-  <?php   foreach ($links as $a): ?>
-            <li><?php echo "<a href='$a[0]'>$a[1]</a>"?></li>
-  <?php   endforeach ?>
+            {% if user.is_authenticated %}
+            <li><a href="{% url 'logout' %}">Wyloguj</a></li>
+            {% else %}
+            <li><a href="{% url 'register' %}">Zarejestruj</a></li>
+            <li><a href="{% url 'login' %}">Zaloguj</a></li>
+            {% endif %}
+            <li>
               <div>
                 <button class='btn--accessibility' id='darktheme' title='włącz/wyłącz ciemny motyw'></button>
                 <button class='btn--accessibility' id='serif' title='włącz/wyłącz czcionkę bezszeryfową'></button>
@@ -37,7 +36,7 @@
         </nav>
       </header>
       {% block content %}{% endblock %}
-    <footer>
+      <footer>
         <hr>
         <div>&copy; 2021, all rights reserved and beyonds to beTogether. Created by Szymon Siemieniuk.</div>
         <nav>
