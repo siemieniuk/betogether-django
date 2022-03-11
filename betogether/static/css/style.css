@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
+
 :root {
     --primary-color: #c33d41;
     --secondary-color: #b80107;
@@ -47,7 +50,7 @@
     header>#hamburger {
         display: block;
         flex: 0 0 18vw;
-        background-image: url('img/hamburger.svg');
+        background-image: url('../img/hamburger.svg');
         background-size: contain;
         background-repeat: no-repeat;
         height: auto;
@@ -60,10 +63,6 @@
         height: 0;
         opacity: 0;
         order: 3;
-    }
-    
-    header>nav>ul {
-
     }
 
     body footer {
@@ -119,7 +118,7 @@ footer>nav>a:hover {
 }
 
 footer>hr {
-    flex: 0 0 99vw;
+    flex: 0 1 100vw;
 }
 
 footer>div {
@@ -165,6 +164,9 @@ main {
     justify-content: flex-start;
     min-height: 100vh;
     padding-top: 130px;
+    width: 95%;
+    max-width: 1600px;
+    align-self: center;
 }
 
 main#start {
@@ -263,11 +265,12 @@ section>h1 {
 .accessibility--darktheme {
     --even-color: grey;
     --fill-color: #121212;
-    --font-color: rgba(255,255,255,0.8);
+    --font-color: rgba(255,255,255);
+    --hyperlink-color: rgba(0,255,255);
     --input-background-color: grey;
-    --hyperlink-color: rgba(0,255,255,0.8);
     background-color: #121212;
     color: rgba(255,255,255,0.8);
+    opacity: 0.78;
 }
 
 .accessibility--nonserif {
@@ -278,7 +281,6 @@ section>h1 {
     background-color: var(--primary-color);
     border: solid var(--secondary-color) 2px;
     border-radius: 0.4rem;
-    color: white;
     display: inline-block;
     font: 1.1rem sans-serif;
     text-decoration: none;
@@ -321,13 +323,6 @@ h1+a>.btn--form {
 
 .btn--table {
     border-radius: 0 !important;
-}
-
-.error, .error--server {
-    border: solid red 1px;
-    border-radius: 0.4rem;
-    color: red;
-    font-weight: bold;
 }
 
 .hidden {
@@ -409,11 +404,22 @@ h1+a>.btn--form {
     color: greenyellow;
 }
 
-.success {
-    border: solid greenyellow 1px;
+.msg-block {
     border-radius: 0.4rem;
-    color: greenyellow;
     font-weight: bold;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    width: 100%;
+}
+
+.msg--error {
+    background-color: #CC0000;
+    color: white;
+}
+
+.msg--success {
+    background: #007E33;
+    color: white;
 }
 
 @keyframes showmenu {
