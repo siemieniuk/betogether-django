@@ -3,20 +3,38 @@
 {% block title %}Strona główna{% endblock %}
 
 {% block content %}
-    <main id='start'>
+      <main id='start'>
 {% if logout %}
-      <div class='msg-block msg--success'>Pomyślnie wylogowano!</div>
+        <div class='msg-block msg--success'>Pomyślnie wylogowano!</div>
 {% endif %}
-      <section title='hello'>
         <h1>Witamy na naszej (Waszej!) platformie!</h1>
-        <p>To nie żart, ta platforma jest miejscem, które Wy jako społeczność sami tworzycie!</p>
-        <p>Nazwa serwisu nie jest przypadkowa. Jest to miejsce, w którym razem spędzimy wspólny czas: na żartowaniu, plotkowaniu, rozmowie.</p>
-        <p>Wymieniaj się postami i wspomnieniami, głosuj na najlepsze (i najgorze) wpisy. Możliwości są nieograniczone.</p>
-        <p>Na co zwlekasz? Bądźmy razem!</p>
-        <section id='index_buttons'>
-          <a href={% url 'register' %}><button class='btn--form'>Stwórz konto</button></a>
-          <a href={% url 'login' %}><button class='btn--form'>Zaloguj</button></a>
+        <div id='index_buttons'>
+          <a href={% url 'login' %}><button class='btn btn-primary'>Zaloguj</button></a>
+          <a href={% url 'register' %}><button class='btn btn-outline-primary'>Stwórz konto</button></a>
+        </div>
+        <hr>
+        <section title='hello'>
+          <div class="card row mb-1 rounded-3">
+            <div class="card-body">
+              <div class="col-12 col-md-9">To nie żart, ta platforma jest miejscem,<br>które Wy jako społeczność sami tworzycie!</div>
+              <div class="col-12 col-md-3" style="background-color: gray;">TEST</div>
+            </div>
+          </div>
+          <div class="card row mb-1 rounded-3">
+            <div class="card-body">
+              <div class="col-12 col-md-3" style="background-color: gray;">TEST</div>
+              <p class="col-12 col-md-9">Nazwa serwisu nie jest przypadkowa.<br>Jest to miejsce, w którym razem spędzimy wspólny czas: na żartowaniu, plotkowaniu, rozmowie.</p>
+            </div>
+          </div>
+          <div class="card row mb-1 rounded-3">
+            <div class="card-body">
+              <p class="col-12 col-md-9">Wymieniaj się postami i wspomnieniami, głosuj na najlepsze (i najgorze) wpisy. Możliwości są nieograniczone.</p>
+              <div class="col-12 col-md-3" style="background-color: gray;">TEST</div>
+            </div>
+          </div>
+          <div class="card row mb-1">
+            <p class="col-12 col-md-6">Na co zwlekasz? Bądźmy razem!</p>
+          </div>
         </section>
-      </section>
-    </main>
+      </main>
 {% endblock %}
