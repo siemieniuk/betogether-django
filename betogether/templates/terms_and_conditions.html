@@ -1,12 +1,12 @@
 {% extends 'base.html' %}
 {% block title %}Regulamin serwisu{% endblock %}
 {% block content %}
-<main>
     <h1>Regulamin serwisu</h1>
     <ol>
-        <li>Serwis beTogether ma swoją siedzibę w Poznaniu.</li>
-        <li>Korzystanie z serwisu jest bezpłatne.</li>
-        <li>Wszelkie kwestie nieuregulowane niniejszym regulaminem, znajdują wyjaśnienie w Kodeksie cywilnym.</li>
+        {% with ''|center:10 as range %}
+        {% for _ in range %}
+        <li>{% lorem random %}</li>
+        {% endfor %}
+        {% endwith %}
     </ol>
-</main>
 {% endblock %}
