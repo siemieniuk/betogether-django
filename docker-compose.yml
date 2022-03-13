@@ -2,6 +2,7 @@ version: "3.8"
 
 services:
   db:
+    container_name: bt-mysql
     image: mysql:5.7
     restart: always
     ports:
@@ -15,6 +16,7 @@ services:
   web:
     build: .
     command: python manage.py runserver 0.0.0.0:8000
+    container_name: bt-backend
     volumes:
       - ./betogether:/code
     ports:
