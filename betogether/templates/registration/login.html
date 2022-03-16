@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %}Logowanie{% endblock %}
+{% block content %}
+<main class='col-md-6 offset-md-3'>
+    {% if form.errors %}
+    <div class='alert alert-danger'>Nieprawidłowy nick lub hasło</div>
+    {% endif %}
+    <h1 class='mb-4'>Wprowadź swój nick i hasło</h1>
+    <form name={% url 'login' %} method='post'>
+        {% csrf_token %}
+        <input type="text" class="form-control mb-2" name="username" placeholder="Nazwa użytkownika">
+        <input type="password" class="form-control mb-2" name="password" placeholder="Hasło">
+        <button type="submit" class='btn btn-primary w-100'>zaloguj</button>
+        <a href={% url 'password_reset' %} class='mb-3'>Zresetuj hasło</a>
+    </form>
+</main>
+{% endblock %}

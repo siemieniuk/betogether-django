@@ -3,7 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.views import View
-from .forms import LoginForm, RegisterForm
+from .forms import RegisterForm
 # Create your views here.
 
 def homepage(request):
@@ -22,40 +22,6 @@ def terms(request):
         request,
         'terms_and_conditions.html'
     )
-
-class LoginView(View):
-    template_name = 'login.html'
-    def post(self, request):
-        form = LoginForm(request.POST or None)
-        if form.is_valid():
-            cd = form.cleaned_data
-            user = authenticate(
-                request,
-                username=cd['username'],
-                password=cd['password']
-            )
-            if user is not None:
-                if user.is_active:
-                    login(request, user)
-                    return redirect(homepage)
-                return HttpResponse('You have been banned!')  
-        form = LoginForm()
-        return render(
-            request,
-            self.template_name,
-            {
-                'form': form,
-                'msg': "Nieprawidłowe dane logowania"
-            })
-
-    def get(self, request):
-        form = LoginForm()
-        return render(
-            request,
-            self.template_name,
-            {
-                'form': form,
-            })
 
 def register(request):
     if request.method == 'POST':
