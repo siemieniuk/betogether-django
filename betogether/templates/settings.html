@@ -2,4 +2,12 @@
 {% block title %}Ustawienia{% endblock %}
 {% block content %}
 <h1>Ustawienia konta</h1>
+<ul>
+    <li>
+        <a href={% url 'password_change' %}>Zmień hasło</a>
+    </li>
+    <li>
+        <a href='#'>Usuń konto</a>
+    </li>
+</ul>
 {% endblock %}
